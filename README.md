@@ -1,4 +1,4 @@
-Single Sing-On de maneira fácil com PicketLink
+PicketLink SSO
 ==============
 
-PicketLink - Single Sign-On
+Single Sing-On de maneira fácil com PicketLink
