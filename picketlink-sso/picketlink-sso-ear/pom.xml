@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+   <modelVersion>4.0.0</modelVersion>
+
+   <parent>
+      <artifactId>picketlink-sso</artifactId>
+      <groupId>josehenriqueventura</groupId>
+      <version>1.0-SNAPSHOT</version>
+   </parent>
+
+   <artifactId>picketlink-sso-ear</artifactId>
+   <packaging>ear</packaging>
+
+   <name>picketlink-sso EAR module</name>
+
+   <dependencies>
+      <dependency>
+         <groupId>josehenriqueventura</groupId>
+         <artifactId>picketlink-sso-idp</artifactId>
+         <type>war</type>
+      </dependency>
+      <dependency>
+         <groupId>josehenriqueventura</groupId>
+         <artifactId>picketlink-sso-sp-one</artifactId>
+         <type>war</type>
+      </dependency>
+      <dependency>
+         <groupId>josehenriqueventura</groupId>
+         <artifactId>picketlink-sso-sp-two</artifactId>
+         <type>war</type>
+      </dependency>
+      <dependency>
+         <groupId>josehenriqueventura</groupId>
+         <artifactId>picketlink-sso-ejb</artifactId>
+         <type>ejb</type>
+      </dependency>
+   </dependencies>
+
+   <build>
+      <finalName>picketlink-sso</finalName>
+      <plugins>
+         <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-ear-plugin</artifactId>
+            <version>2.6</version>
+            <configuration>
+               <version>6</version>
+               <defaultLibBundleDir>lib</defaultLibBundleDir>
+               <modules>
+                  <webModule>
+                     <groupId>josehenriqueventura</groupId>
+                     <artifactId>picketlink-sso-idp</artifactId>
+                     <contextRoot>/picketlink-sso-idp</contextRoot>
+                  </webModule>
+               </modules>
+            </configuration>
+         </plugin>
+
+         <plugin>
+            <groupId>org.jboss.as.plugins</groupId>
+            <artifactId>jboss-as-maven-plugin</artifactId>
+            <configuration>
+               <skip>false</skip>
+            </configuration>
+         </plugin>
+      </plugins>
+   </build>
+</project>

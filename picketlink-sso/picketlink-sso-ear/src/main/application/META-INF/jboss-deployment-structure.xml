@@ -1,0 +1,19 @@
+<jboss-deployment-structure>
+	<ear-subdeployments-isolated>false</ear-subdeployments-isolated>
+	<sub-deployment name="picketlink-sso-idp-1.0-SNAPSHOT.war">
+		<dependencies>
+			<module name="org.picketlink" />
+		</dependencies>
+	</sub-deployment>
+	<sub-deployment name="picketlink-sso-sp-one-1.0-SNAPSHOT.war">
+		<dependencies>
+			<module name="org.picketlink" />
+		</dependencies>
+	</sub-deployment>
+	<sub-deployment name="picketlink-sso-sp-two-1.0-SNAPSHOT.war">
+		<dependencies>
+			<module name="org.picketlink" />
+		</dependencies>
+	</sub-deployment>
+</jboss-deployment-structure>
+

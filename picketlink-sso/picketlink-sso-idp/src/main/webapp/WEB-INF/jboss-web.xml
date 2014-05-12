@@ -1,0 +1,6 @@
+<jboss-web>
+    <!-- security-domain>idp</security-domain -->
+    <security-domain>idpSecurityDomain</security-domain>
+
+    <context-root>picketlink-sso-idp</context-root>
+</jboss-web>

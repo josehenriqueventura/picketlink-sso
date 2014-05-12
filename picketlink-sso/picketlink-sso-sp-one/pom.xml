@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<artifactId>picketlink-sso</artifactId>
+		<groupId>josehenriqueventura</groupId>
+		<version>1.0-SNAPSHOT</version>
+	</parent>
+
+	<artifactId>picketlink-sso-sp-one</artifactId>
+	<packaging>war</packaging>
+
+	<name>Picketlink Single Sign-On - One</name>
+
+	<dependencies>
+		<dependency>
+			<groupId>josehenriqueventura</groupId>
+			<artifactId>picketlink-sso-ejb</artifactId>
+			<type>ejb</type>
+			<scope>provided</scope>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<artifactId>maven-war-plugin</artifactId>
+				<version>2.2</version>
+				<configuration>
+					<failOnMissingWebXml>false</failOnMissingWebXml>
+					<webResources>
+						<resource>
+							<directory>src/main/webapp</directory>
+							<filtering>true</filtering>
+						</resource>
+					</webResources>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+	
+	<profiles>
+		<profile>
+			<id>debug1</id>
+			<properties>
+			    <AcessUrlONE>localhost</AcessUrlONE>
+			    <IdentityURLONE>${picketlink-sso-idp.url::http://localhost:8080/picketlink-sso-idp/}</IdentityURLONE>
+			    <ServiceURLONE>${picketlink-sso-sp-one.url::http://localhost:8080/picketlink-sso-sp-one/}</ServiceURLONE>
+			</properties>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+		</profile><!-- ALTERA O PROJETO PARA MODO DE DESENVOLVIMENTO -->
+
+	</profiles>
+</project>
